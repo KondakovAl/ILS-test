@@ -9,7 +9,7 @@ import {
 
 const fetchRequests = async () => {
   const response = await fetch(
-    `${GIST_API}93b50d9cc27fb219bf8368aca0e461fa/raw/ed2dc0eb40eee5ec5ae3242af076b4311cb02a6b/table_ILS.json`
+    `${GIST_API}93b50d9cc27fb219bf8368aca0e461fa/raw/4207612ca35fd5cc1551dd93b672473c3a5a1518/table_ILS.json`
   );
   if (response.ok) {
     return await response.json();
