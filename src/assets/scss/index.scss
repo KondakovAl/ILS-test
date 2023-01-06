@@ -41,8 +41,30 @@ body {
   line-height: 14px;
   font-weight: 400;
   min-width: 300px;
-  color: $primary-dark;
   max-width: 100%;
   background: $primary-grey-light;
   height: calc(var(--vh, 1vh) * 100);
+}
+
+.layout {
+  min-height: 100%;
+  flex: 1;
+  height: calc(var(--vh, 1vh) * 100);
+  &__content {
+    padding: 20px 0;
+    flex: 1;
+  }
+}
+
+.wrapper {
+  display: flex;
+  width: calc(100% - 100px);
+  margin: 0 auto;
+}
+
+.content__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(50px - 2vw);
+  height: 100%;
 }

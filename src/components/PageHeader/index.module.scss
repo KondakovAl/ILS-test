@@ -1,0 +1,17 @@
+.header {
+  padding-inline: 0 !important;
+  padding: 15px 0;
+  // background-color: #bae0ff !important;
+  border-bottom: 1px solid rgb(61, 48, 48);
+  height: auto !important;
+  &__logo {
+    padding: 5px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    display: flex;
+    & img {
+      width: 180px;
+      height: 41px;
+    }
+  }
+}

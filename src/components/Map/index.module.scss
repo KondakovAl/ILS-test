@@ -1,0 +1,30 @@
+.map {
+  position: relative;
+  &__container {
+    border-radius: 20px;
+    border: 1px solid grey;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    transition: filter 0.2s ease-in;
+  }
+  &__loading {
+    .map__container {
+      filter: blur(2px);
+    }
+  }
+  &__loader {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__error {
+    position: absolute;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
