@@ -5,7 +5,7 @@ import { MapContainer, Marker } from 'react-leaflet';
 import L, { FeatureGroup } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet.motion/dist/leaflet.motion.js';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import { useMap } from 'react-leaflet';
 import { useSelector } from 'react-redux';
@@ -29,14 +29,11 @@ const IconTo = () => {
 };
 
 const Map: React.FC = () => {
-  const [colorMode, setColorMode] = useState<'light' | 'dark'>('light');
   const { coords, route, loading, error } = useSelector(
     (state: RootState) => state.route
   );
 
   const light = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-  const dark =
-    'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png';
 
   const drawPolyline = (L as any).motion.polyline(
     [route],
@@ -57,14 +54,11 @@ const Map: React.FC = () => {
     }
   );
 
-  console.log(route);
-  console.log(drawPolyline);
-
   const ChangeOnView = ({ markers }: IChangeView) => {
     const map = useMap();
     const group = new FeatureGroup();
 
-    markers.forEach((marker: { lat: number; lon: number }) => {
+    markers.forEach((marker: any) => {
       L.marker([marker.lat, marker.lon]).addTo(group);
     });
 
@@ -81,7 +75,6 @@ const Map: React.FC = () => {
 
     return null;
   };
-  console.log(loading);
 
   return (
     <div className={`${styles.map} ${loading ? styles.map__loading : ''}`}>
@@ -92,7 +85,7 @@ const Map: React.FC = () => {
         zoomSnap={0.5}
         zoomDelta={0.25}
       >
-        <TileLayer url={colorMode === 'light' ? light : dark} />
+        <TileLayer url={light} />
         {!Object.values(coords).includes(null) && (
           <>
             <Marker

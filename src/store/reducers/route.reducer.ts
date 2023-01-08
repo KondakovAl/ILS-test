@@ -1,4 +1,4 @@
-import { RouteProps } from '../../types/types';
+import { RouteProps, RoutePropsAction } from '../../types/types';
 
 import {
   LOAD_ROUTE_ERROR,
@@ -19,7 +19,7 @@ const initialState = {
   error: '',
 };
 
-const setRoute = (state: RouteProps, action: any) => {
+const setRoute = (state: RouteProps, action: RoutePropsAction) => {
   const polyline = require('@mapbox/polyline');
   const decodedRoute = polyline.decode(action.route);
 
@@ -30,7 +30,10 @@ const setRoute = (state: RouteProps, action: any) => {
   };
 };
 
-export const routeReducer = (state: RouteProps = initialState, action: any) => {
+export const routeReducer = (
+  state: RouteProps = initialState,
+  action: RoutePropsAction
+) => {
   switch (action.type) {
     case SET_COORDS: {
       return {

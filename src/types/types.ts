@@ -7,7 +7,7 @@ export interface RequestProps {
         header: ColumnsType<DataType>;
         main: DataType[];
       }
-    | any[];
+    | any;
   loading: boolean;
   error: string;
 }
@@ -34,9 +34,22 @@ export interface RouteProps {
   error: string;
 }
 
+export interface RoutePropsAction extends RouteProps {
+  payload: Coords;
+  type: string;
+}
+
 export interface IChangeView {
   markers: {
-    lat: number;
-    lon: number;
+    lat: null | number;
+    lon: null | number;
   }[];
+}
+
+export interface Coords {
+  key: string;
+  lngfrom: null | number;
+  latfrom: null | number;
+  lngto: null | number;
+  latto: null | number;
 }
