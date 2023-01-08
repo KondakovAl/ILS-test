@@ -1,4 +1,4 @@
-import { put, takeEvery, call, delay, takeLatest } from 'redux-saga/effects';
+import { put, takeEvery, call, delay } from 'redux-saga/effects';
 import { OSRM_API } from '../constants/global';
 
 import {
@@ -7,7 +7,9 @@ import {
   LOAD_ROUTE_SUCCESS,
 } from '../store/actions/route.actions';
 
-export const fetchRoute = async (coord: any) => {
+import { Coords } from '../types/types';
+
+export const fetchRoute = async (coord: Coords) => {
   const { lngfrom, latfrom, lngto, latto } = coord;
   const response = await fetch(
     `${OSRM_API}route/v1/driving/${lngfrom},${latfrom};${lngto},${latto}?overview=full`

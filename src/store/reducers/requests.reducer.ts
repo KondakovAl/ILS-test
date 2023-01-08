@@ -1,4 +1,6 @@
-import { RequestProps } from '../../types/types';
+import { ColumnsType } from 'antd/es/table';
+
+import { DataType, RequestProps } from '../../types/types';
 import {
   LOAD_REQUESTS_ERROR,
   LOAD_REQUESTS_LOADING,
@@ -11,9 +13,18 @@ const initialState = {
   error: '',
 };
 
+interface RequestsActionsProps {
+  requests: {
+    header: ColumnsType<DataType>;
+    main: DataType[];
+  };
+  error: string;
+  type: string;
+}
+
 export const requestsReducer = (
   state: RequestProps = initialState,
-  action: any
+  action: RequestsActionsProps
 ) => {
   switch (action.type) {
     case LOAD_REQUESTS_LOADING: {

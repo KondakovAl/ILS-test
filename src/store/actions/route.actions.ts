@@ -1,5 +1,4 @@
 export const SET_COORDS = 'SET_COORDS';
-
 export const REQUEST_ROUTE = 'REQUEST_ROUTE';
 
 export const LOAD_ROUTE_LOADING = 'LOAD_ROUTE_LOADING';
